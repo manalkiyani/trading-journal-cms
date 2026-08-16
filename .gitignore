@@ -1,0 +1,34 @@
+############################
+# Strapi
+############################
+.tmp
+.cache
+.strapi
+.strapi-updater.json
+dist
+build
+database/data.db
+
+############################
+# dependencies
+############################
+node_modules/
+
+############################
+# env
+############################
+.env
+.env.local
+.env.*.local
+
+############################
+# uploads (local media provider) — runtime data, not source
+############################
+public/uploads/*
+!public/uploads/.gitkeep
+
+############################
+# misc
+############################
+.DS_Store
+*.log

@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trades",
+  "info": {
+    "singularName": "trade",
+    "pluralName": "trades",
+    "displayName": "Trade",
+    "description": "A single trade record for the trading journal"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "symbol": {
+      "type": "string",
+      "description": "Ticker / instrument traded, e.g. OGDC"
+    },
+    "buy_date": {
+      "type": "string",
+      "description": "Buy date, free text e.g. 25-jul"
+    },
+    "sell_date": {
+      "type": "string",
+      "description": "Sell date, free text e.g. 11-aug"
+    },
+    "entry_price": {
+      "type": "decimal",
+      "description": "Price at entry"
+    },
+    "entry_notes": {
+      "type": "text",
+      "description": "Reasoning for entry, e.g. gap open, double vol, RSI hook"
+    },
+    "rsi_avg": {
+      "type": "string",
+      "description": "Average RSI (free text)"
+    },
+    "rsi": {
+      "type": "string",
+      "description": "RSI at signal (free text)"
+    },
+    "exit_reason": {
+      "type": "text",
+      "description": "Reasoning / notes for exit, e.g. engulf, SL hit"
+    },
+    "profit": {
+      "type": "decimal",
+      "description": "Absolute profit or loss for the trade"
+    },
+    "profit_pct": {
+      "type": "decimal",
+      "description": "Manual override for profit %; if blank, the app computes it from profit/balance"
+    },
+    "holding_period": {
+      "type": "decimal",
+      "description": "Manual override for holding period (days); if blank, the app computes it from buy/sell dates"
+    },
+    "balance": {
+      "type": "decimal",
+      "description": "Running account balance after this trade"
+    },
+    "sort_order": {
+      "type": "integer",
+      "description": "Manual ordering within a journal"
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "journal": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::journal.journal",
+      "inversedBy": "trades"
+    }
+  }
+}

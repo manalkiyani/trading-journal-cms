@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "note_sections",
+  "info": {
+    "singularName": "note-section",
+    "pluralName": "note-sections",
+    "displayName": "Note Section",
+    "description": "A titled section of notes (a numbered list of note items)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "sort_order": {
+      "type": "integer"
+    },
+    "items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::note-item.note-item",
+      "mappedBy": "section"
+    }
+  }
+}

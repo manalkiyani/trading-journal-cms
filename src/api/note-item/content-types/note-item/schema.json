@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "note_items",
+  "info": {
+    "singularName": "note-item",
+    "pluralName": "note-items",
+    "displayName": "Note Item",
+    "description": "A single numbered entry within a note section"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "text",
+      "description": "HTML content of this list item (supports <b> bold)"
+    },
+    "sort_order": {
+      "type": "integer"
+    },
+    "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "section": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::note-section.note-section",
+      "inversedBy": "items"
+    }
+  }
+}
